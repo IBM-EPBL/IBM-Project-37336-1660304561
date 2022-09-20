@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="text/javascript">
+      function validate() {
+        let firstname = document.forms["formvalid"]["name"].value;
+        let email = document.forms["formvalid"]["mail"].value;
+        let password = document.forms["formvalid"]["pass"].value;
+        let Age1 = document.forms["formvalid"]["Age"].value;
+        let programme1 = document.forms["formvalid"]["Prog"].value;
+        let gen = document.forms["formvalid"]["gender"].value;
+
+        localStorage.setItem("fname", firstname);
+        localStorage.setItem("mail", email);
+        localStorage.setItem("pass", password);
+        localStorage.setItem("Age", Age1);
+        localStorage.setItem("Prog", programme1);
+        localStorage.setItem("gender", gen);
+
+        if (
+          firstname == "" ||
+          email == "" ||
+          password == "" ||
+          Age1 == "" ||
+          programme1 == "--Choose Dance Form Applied--" ||
+          gen == ""
+        ) {
+          alert("Fill all the details");
+          return false;
+        } else {
+          return true;
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>SPORTS REGISTRATION FORM</h1>
+    <form
+      name="formvalid"
+      onsubmit="return validate()"
+      action="19z214-redirectpage.html"
+      method="GET"
+    >
+      <table>
+        <tr>
+          <td>
+            <label for="name">Name</label>
+          </td>
+          <td>
+            <input type="text" name="name" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email">Email</label>
+          </td>
+          <td>
+            <input type="text" name="mail" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="pass">Password</label>
+          </td>
+          <td>
+            <input type="password" name="pass" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="Age">Age</label>
+          </td>
+          <td>
+            <input type="text" name="Age" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Gender</label>
+          </td>
+          <td>
+            <label><input type="radio" value="f" name="gender" /> Female</label>
+            <label><input value="m" type="radio" name="gender" /> Male</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="Prog">SPORT</label>
+          </td>
+          <td>
+            <select id="Prog" name="Prog">
+              <option disabled selected>--Choose Sports Applied--</option>
+              <option>Football</option>
+              <option>Basketball</option>
+              <option>Tennis</option>
+              <option>Badminton</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <input type="submit" value="Submit" />
+      <input type="reset" />
+    </form>
+  </body>
+</html>
